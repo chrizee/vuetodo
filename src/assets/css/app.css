@@ -1,0 +1,108 @@
+@import "animate.min.css";
+@import "font-awesome/css/font-awesome.min.css";
+
+body {
+  background: #EEEEEE;
+  display: grid;
+  padding-top: 20px;
+  justify-items: center;
+  grid-template-rows: auto;
+}
+body, html {
+  margin: 0;
+  height: 100%;
+}
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+   
+  color: #2c3e50;
+  margin-top: 60px;
+  width: 50%;
+}
+nav {
+  padding: 20px 20px 20px 0;
+}
+nav a {
+  padding: 10px;
+  text-decoration: none;
+  background: #ffffff;
+  margin-right: 15px;
+  border-radius: 3px;
+  font-weight: bold;
+  color: rgb(0, 110,255);
+}
+span.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #eadd00;
+  color: #ffffff;
+}
+.wrapper {
+  background: #ffffff;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin:0; 
+}
+ul li {
+  padding: 20px;
+  font-size: 1.3em;
+  background: #E0EDF4;
+  margin-bottom: 2px;
+  border-left: 5px solid #3EB3F6;
+  color: #3E5252;
+}
+p {
+  text-align: center;
+  padding: 30px 0;
+  color: gray;
+}
+.container {
+  box-shadow: 0px 0px 40px lightgray;
+}
+a {
+  color: #42b983;
+}
+input {
+  width: calc(100% - 40px);
+  margin: 0px;
+  padding: 20px;
+  font-size: 1.3em;
+  background: #323333;
+  color: #687F7F;
+}
+.alert-error {
+  background: #fdf2ce;
+  padding: 5px;
+  font-weight: bold;
+  display: inline-block;
+  margin-top: -20px;
+}
+.alert-in-enter-active {
+  animation: bounce 500ms;
+}
+.alert-in-leave-active {
+  animation: bounce 500ms reverse;
+}
+@keyframes bounce{
+  0% {
+    transform: translateY(-20px) scale(0);
+  }
+  50% {
+    transform: translateY(20px) scale(1.2);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
+}
+i {
+  float: right;
+  cursor: pointer;
+}
+div.about, div.quote {
+  background: #E0EDF4;
+}

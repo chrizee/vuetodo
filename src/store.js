@@ -14,7 +14,8 @@ export default new Vuex.Store({
 		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.`,
-		quote: {}
+		quote: {},
+		showSpinner: false
 	},
 	getters,
 	mutations,
@@ -24,19 +25,22 @@ export default new Vuex.Store({
 				commit("TOGGLECOMPLETE", {getters, index} );
 			} ,1500);
 		},
-		getQuote ({commit}) {
-			fetch("https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en", {
-				headers: {
-					"Access-Control-Allow-Origin" : "*",
-					"Content-type": "application/json"
-				}
-			})
+		getQuote ({commit, dispatch}) {
+			commit("TOGGLESPINNER"); 
+			fetch("https://api.forismatic.com/api/1.0/?method=getQuote&format=json&lang=en")
 			.then((res) => res.json())
 			.then((data) => {
-				commit("ADDQUOTE", data);
+				if(data.quoteText == undefined) {
+					console.log(data.quoteText+ data.quoteAuthor + 'efee' );
+					dispatch('getQuote');	//if nothing is returned dispatch the action to run again
+				}else{
+					commit("ADDQUOTE", data);
+					commit("TOGGLESPINNER"); 
+				}
 			})
-			.catch((error) => {
+			.catch(() => {
 				commit("ADDQUOTE", "Something wen wrong try again");
+				commit("TOGGLESPINNER"); 
 			})
 		}
 	}

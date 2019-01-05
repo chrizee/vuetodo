@@ -7,6 +7,7 @@ import Quote from './components/Quote';
 Vue.use(Router);
 
 export default new Router({
+	mode: history,
 	routes: [
 		{
 			path: "/",

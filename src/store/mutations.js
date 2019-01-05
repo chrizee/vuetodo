@@ -16,7 +16,9 @@ export default {
   		localStorage.setItem('items', JSON.stringify(state.todos));
 	},
 	ADDQUOTE(state, payload) {
-		//let use = payload.contents.quotes[0]
-		state.quote = {body: payload.quoteText, author: payload.quoteAuthor};
+		state.quote = {body: payload.quoteText, author: payload.quoteAuthor ? payload.quoteAuthor : "Anonymous"};
+	},
+	TOGGLESPINNER(state) {
+		state.showSpinner = !state.showSpinner;
 	}
 }
